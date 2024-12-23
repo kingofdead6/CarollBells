@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carol of the Bells</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="download.jpeg" type="image">
+</head>
+<style>
+    body { margin: 0; overflow: hidden; }
+    canvas { display: block; }
+</style>
+<body>
+    <video autoplay muted loop id="background-video">
+    <source src="back.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+    <div id="container">
+    
+        <div id="lyric-display">
+            <div id="previous-line"></div>
+            <div id="current-line"></div>
+            <div id="next-line"></div>
+        </div>
+        <button id="play-button">Play Song</button>
+        <input type="range" id="seek-slider" min="0" max="100" step="0.1" value="0">
+    </div>
+        
+    <audio id="audio" loop>
+        <source src="carolofthebels.mp3" type="audio/mp3">
+    </audio>
+   
+
+    <script type="module" src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+   
+</body>
+</html>

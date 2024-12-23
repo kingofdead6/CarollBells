@@ -1,0 +1,198 @@
+/* Global reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #7a0394; /* Christmas red background */
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    padding: 20px;
+    position: relative;
+}
+
+#container {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+#play-button {
+    background-color: #ff4b5c;
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 12px 24px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 0 15px rgba(255, 75, 92, 0.8);
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+}
+
+#play-button:hover {
+    background-color: #ff6b7f;
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(255, 75, 92, 1);
+}
+
+#play-button:active {
+    transform: scale(1);
+    box-shadow: 0 0 15px rgba(255, 75, 92, 0.8);
+}
+
+#seek-slider {
+    width: 80%; /* Adjust slider width */
+    height: 8px;
+    background-color: #fff;
+    border-radius: 10px;
+    position: relative;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+#seek-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #ff4b5c;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px #ff4b5c;
+}
+
+#seek-slider::-webkit-slider-thumb:hover {
+    background-color: #ff6b7f;
+    box-shadow: 0 0 15px #ff4b5c, 0 0 25px #ff4b5c;
+}
+
+#seek-slider::-webkit-slider-runnable-track {
+    background: linear-gradient(to right, #4b9c8d, #ff4b5c);
+    border-radius: 10px;
+}
+
+#seek-slider:focus {
+    outline: none;
+}
+
+/* Lyric Display */
+#lyric-display {
+    margin-top: 30px;
+    text-align: center;
+}
+
+#previous-line,
+#current-line,
+#next-line {
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 0 0 10px #fff, 0 0 20px #ffcc00, 0 0 30px #ffcc00;
+    margin: 5px;
+    opacity: 0;
+}
+
+/* Festive Glow */
+#current-line {
+    animation: glow 1s ease-out infinite alternate;
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 15px #ffcc00, 0 0 30px #ffcc00, 0 0 60px #ffcc00;
+    }
+    100% {
+        text-shadow: 0 0 10px #ff4b5c, 0 0 20px #ff4b5c;
+    }
+}
+
+/* Snowflakes Effect */
+.snowflake {
+    position: absolute;
+    color: #fff;
+    font-size: 20px;
+    opacity: 0.8;
+    pointer-events: none;
+    z-index: 10;
+    animation: snowfall 7s linear infinite;
+}
+
+@keyframes snowfall {
+    0% {
+        transform: translateY(-100px) translateX(0);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) translateX(50vw);
+        opacity: 0;
+    }
+}
+
+#background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  
+    z-index: -1;  
+}
+@media (max-width: 768px) {
+    #play-button {
+        font-size: 16px; 
+        padding: 10px 20px;
+    }
+
+    #seek-slider {
+        width: 90%; 
+        height: 6px;
+    }
+
+    #seek-slider::-webkit-slider-thumb {
+        width: 18px;
+        height: 18px;
+    }
+
+    #lyric-display {
+        font-size: 14px; 
+    }
+
+    .snowflake {
+        font-size: 16px; 
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px; 
+    }
+
+    #play-button {
+        font-size: 14px; 
+        padding: 8px 16px;
+    }
+
+    #seek-slider {
+        width: 100%; 
+        height: 5px;
+    }
+
+    #lyric-display {
+        font-size: 12px; 
+    }
+
+    .snowflake {
+        font-size: 14px; 
+    }
+}
